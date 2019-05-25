@@ -25,7 +25,7 @@ class Partner < ApplicationRecord
 
   belongs_to :language, optional: true
 
-  validates_presence_of :name
+  validates_presence_of :name, :image
   validates_length_of :name, maximum: NAME_LIMIT
   validates_length_of :url, maximum: URL_LIMIT
 
