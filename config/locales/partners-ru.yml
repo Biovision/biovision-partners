@@ -1,0 +1,47 @@
+ru:
+  partner_count:
+    zero: "партнёров нет"
+    one: "%{count} партнёр"
+    few: "%{count} партнёра"
+    many: "%{count} партнёров"
+    other: "%{count} партнёров"
+  activerecord:
+    models:
+      partner: "Партнёр"
+    attributes:
+      partner:
+        image: "Картинка"
+        language: "Язык"
+        language_id: "Язык"
+        priority: "Порядок сортировки"
+        visible: "Показывать"
+        name: "Название"
+        url: "Сайт"
+  admin:
+    partners:
+      nav_item:
+        description: "Управление партнёрами"
+        text: "Партнёры"
+      index:
+        heading: "Партнёры"
+        title: "Партнёры"
+      show:
+        title: "Партнёр «%{name}»"
+  partners:
+    new:
+      heading: "Добавление партнёра"
+      nav_text: "Добавить"
+      title: "Новый партнёр"
+    edit:
+      heading: "Редактирование партнёра"
+      nav_text: "Редактировать"
+      title: "Редактирование партнёра"
+    update:
+      success: "Партнёр отредактирован"
+    destroy:
+      success: "Партнёр удалён"
+    form:
+      guidelines:
+        image: "Картинка в формате SVG, PNG или JPG."
+        name: "Максимум 150 символов."
+        url: "Максимум 250 символов."
