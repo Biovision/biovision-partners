@@ -1,0 +1,15 @@
+<% collection = Partner.list_for_visitors %>
+<% if collection.load.any? %>
+  <section class="index-partners">
+    <h2><%= t('.heading') %></h2>
+
+    <%=
+      render(
+          partial: 'partners/carousel',
+          locals: {
+              collection: collection
+          }
+      )
+    %>
+  </section>
+<% end %>

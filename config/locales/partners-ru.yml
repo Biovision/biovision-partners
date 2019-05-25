@@ -27,6 +27,10 @@ ru:
         title: "Партнёры"
       show:
         title: "Партнёр «%{name}»"
+    index:
+      dashboard:
+        biovision_partners:
+          heading: "Партнёры"
   partners:
     new:
       heading: "Добавление партнёра"
@@ -45,3 +49,7 @@ ru:
         image: "Картинка в формате SVG, PNG или JPG."
         name: "Максимум 150 символов."
         url: "Максимум 250 символов."
+  index:
+    dashboard:
+      biovision_partners:
+        heading: "Наши партнёры"
