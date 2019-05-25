@@ -1,0 +1,17 @@
+<%
+  collection ||= Partner.list_for_visitors
+  timeout ||= 3000
+%>
+<% if collection.any? %>
+  <div class="js-biovision-carousel partners-carousel" data-timeout="<%= timeout %>">
+    <button class="prev"></button>
+    <ul class="carousel-container">
+      <% collection.each do |entity| %>
+        <li class="carousel-item">
+          <%= render entity %>
+        </li>
+      <% end %>
+    </ul>
+    <button class="next"></button>
+  </div>
+<% end %>

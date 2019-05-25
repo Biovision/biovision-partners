@@ -36,4 +36,8 @@ class Partner < ApplicationRecord
   def self.entity_parameters
     %i[image language_id name priority url visible]
   end
+
+  def image_alt_text
+    name
+  end
 end

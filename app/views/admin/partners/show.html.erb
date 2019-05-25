@@ -1,0 +1,38 @@
+<% content_for :meta_title, t('.title', name: @entity.name) %>
+<% content_for :breadcrumbs do %>
+  <%= link_to(t('admin.partners.nav_item.text'), admin_partners_path) %>
+  <span><%= @entity.name %></span>
+<% end %>
+
+<article>
+  <h1><%= @entity.name %></h1>
+
+  <ul class="actions">
+    <li><%= back_icon(admin_partners_path) %></li>
+    <li><%= edit_icon(edit_partner_path(id: @entity.id)) %></li>
+  </ul>
+
+  <dl>
+    <dt><%= t('activerecord.attributes.partner.image') %></dt>
+    <dd>
+      <figure class="preview">
+        <%= simple_image_medium(@entity) %>
+      </figure>
+    </dd>
+
+    <% unless @entity.url.blank? %>
+      <dt><%= t('activerecord.attributes.partner.url') %></dt>
+      <dd><%= @entity.url %></dd>
+    <% end %>
+  </dl>
+
+  <%=
+    render(
+        partial: 'shared/admin/toggleable',
+        locals: {
+            entity: @entity,
+            url: toggle_admin_partner_path(id: @entity.id)
+        }
+    )
+  %>
+</article>

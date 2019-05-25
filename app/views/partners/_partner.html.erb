@@ -1,0 +1,14 @@
+<div>
+  <% if partner.url.blank? %>
+    <%= simple_image_preview(partner) %>
+  <% else %>
+    <%=
+      link_to(
+          simple_image_preview(partner),
+          partner.url,
+          target: '_blank',
+          rel: 'external nofollow noopener noreferrer'
+      )
+    %>
+  <% end %>
+</div>

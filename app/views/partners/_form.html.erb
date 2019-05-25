@@ -1,0 +1,68 @@
+<% model_name = entity.class.to_s.underscore %>
+<%= form_with(model: entity, html: { id: "#{model_name}-form" }) do |f| %>
+  <%= render partial: 'shared/list_of_errors', locals: { entity: entity } %>
+
+  <dl>
+    <%= render partial: 'shared/forms/priority', locals: { f: f } %>
+
+    <dt><%= f.label :name %></dt>
+    <dd>
+      <%=
+        f.text_field(
+            :name,
+            id: "#{model_name}_name",
+            size: nil,
+            maxlength: Partner::NAME_LIMIT,
+            required: true
+        )
+      %>
+      <div class="guideline"><%= t('.guidelines.name') %></div>
+    </dd>
+
+    <dt><%= f.label :image %></dt>
+    <dd>
+      <% figure_id = "#{model_name}-image" %>
+      <figure role="group" class="preview" id="<%= figure_id %>">
+        <% if entity.image.blank? %>
+          <%= f.label :image, image_tag('biovision/base/placeholders/1x1.svg') %>
+        <% else %>
+          <%= f.label :image, image_tag(entity.image.medium_url) %>
+        <% end %>
+        <figcaption>
+          <%=
+            f.file_field(
+                :image,
+                id: "#{model_name}_image",
+                accept: 'image/jpeg,image/png,image/svg+xml',
+                required: entity.image.blank?,
+                data: { image: figure_id }
+            )
+          %>
+        </figcaption>
+      </figure>
+      <div class="guideline"><%= t('.guidelines.image') %></div>
+    </dd>
+
+    <dt><%= f.label :url %></dt>
+    <dd>
+      <%=
+        f.url_field(
+            :url,
+            id: "#{model_name}_url",
+            size: nil,
+            maxlength: Partner::URL_LIMIT
+        )
+      %>
+      <div class="guideline"><%= t('.guidelines.url') %></div>
+    </dd>
+
+    <%= render partial: 'shared/forms/entity_flags', locals: { f: f } %>
+  </dl>
+
+  <%= render 'shared/forms/state_container' %>
+
+  <div class="buttons">
+    <%= hidden_field_tag :entity_id, entity.id %>
+    <%= f.button t(:save), type: :submit, class: 'button-save' %>
+  </div>
+<% end %>

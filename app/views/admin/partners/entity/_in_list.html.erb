@@ -1,0 +1,31 @@
+<div class="image">
+  <%= simple_image_preview(entity) %>
+</div>
+<div class="data">
+  <div><%= admin_partner_link(entity) %></div>
+  <% unless entity.url.blank? %>
+    <div class="secondary info">
+      <%= entity.url %>
+    </div>
+  <% end %>
+
+  <%=
+    render(
+        partial: 'shared/admin/toggleable',
+        locals:  {
+            entity: entity,
+            url:    toggle_admin_partner_path(id: entity.id)
+        }
+    )
+  %>
+
+  <ul class="actions">
+    <li><%= edit_icon(edit_partner_path(id: entity.id)) %></li>
+    <%=
+      render(
+          partial: 'shared/actions/priority_changer',
+          locals:  { path: priority_admin_partner_path(id: entity.id) }
+      )
+    %>
+  </ul>
+</div>
