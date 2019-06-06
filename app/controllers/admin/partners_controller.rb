@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Administrative part of post group management
+# Administrative part of partners management
 class Admin::PartnersController < AdminController
   include EntityPriority
   include ToggleableEntity
