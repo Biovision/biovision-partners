@@ -1,9 +1,0 @@
-<% if Biovision::Components::PartnersComponent.allow?(current_user) %>
-  <nav>
-    <h3><%= t('.heading') %></h3>
-
-    <ul>
-      <li><%= render 'admin/partners/nav_item' %></li>
-    </ul>
-  </nav>
-<% end %>

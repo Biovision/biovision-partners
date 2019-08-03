@@ -3,7 +3,7 @@
 # Create component and table for partners
 class CreatePartners < ActiveRecord::Migration[5.2]
   def up
-    create_component unless BiovisionComponent.where(slug: 'partners').exists?
+    create_component
     create_partners unless Partner.table_exists?
   end
 
@@ -26,6 +26,10 @@ class CreatePartners < ActiveRecord::Migration[5.2]
   end
 
   def create_component
-    BiovisionComponent.create(slug: 'partners')
+    slug = Biovision::Components::PartnersComponent::SLUG
+
+    return if BiovisionComponent.where(slug: slug).exists?
+
+    BiovisionComponent.create!(slug: slug)
   end
 end
