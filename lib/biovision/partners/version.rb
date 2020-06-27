@@ -2,6 +2,6 @@
 
 module Biovision
   module Partners
-    VERSION = '0.2.190804.0'
+    VERSION = '0.3.200627.0'
   end
 end
